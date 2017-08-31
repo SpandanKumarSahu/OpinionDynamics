@@ -1,5 +1,6 @@
 import sys
 import os
+import pickle
 import tweepy
 from Message import Message
 
@@ -49,8 +50,7 @@ def collectTweet(api, search):
                 messages.append(message)
             with open('data.txt', 'a') as file:
                 for m in messages:
-                    s = m.getStr()
-                    file.write(s.encode('utf-8'))
+                    pickle.dump(m, file, pickle.HIGHEST_PROTOCOL)
             tweetCount += len(new_tweets)
             print("Downloaded {0} tweets".format(tweetCount))
             max_id = new_tweets[-1].id

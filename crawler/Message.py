@@ -12,7 +12,7 @@ class Message:
         print "UserId: ", self.uid
         print "TimeStamp: ", self.time
 
-    def get_UserId(self):
+    def getUID(self):
         return self.uid
 
     def getStr(self):
