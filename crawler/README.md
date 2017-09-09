@@ -6,6 +6,14 @@ Specify all the terms to search for in `Search.txt`. After that, execute:
 
 `$ python main.py`
 
+The above commnd will generate a collection of tweets stored in `data.txt` file.
+
+In order to extract the set of users that resulted in the tweets, run `python userList.py`.
+The above commnd will generate a collection of users stored in `userList.txt` file.
+
+To get the relations between the users in `userList.txt` run `python userRelation.py`.
+The above commnd will generate a collection of users stored in `relationList.txt` file.
+
 [Pre-Usage Tasks]
 
 * Clone the repo using `git clone https://github.com/SpandanKumarSahu/OpinionDynamics.git`
