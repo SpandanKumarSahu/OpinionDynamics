@@ -1,13 +1,14 @@
 import Message
 import pickle
+from sets import Set
 
-users = []
+users = Set([])
 
 with open('data.txt','r') as file:
     while 1:
         try:
             m = pickle.load(file)
-            users.append(m.getUID())
+            users.add(m.getUID())
         except:
             break
 
