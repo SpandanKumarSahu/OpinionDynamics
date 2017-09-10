@@ -2,7 +2,9 @@
 
 [Usage]
 
-Specify all the terms to search for in `Search.txt`. After that, execute:
+Specify all the terms to search for in `Search.txt`.
+
+After that, execute:
 
 `$ python main.py`
 
@@ -13,6 +15,11 @@ The above commnd will generate a collection of users stored in `userList.txt` fi
 
 To get the relations between the users in `userList.txt` run `python userRelation.py`.
 The above commnd will generate a collection of users stored in `relationList.txt` file.
+
+To view all the SCC components of the graph, run `python extractSCC.py`.
+
+If you wish to run all steps in one go, then after specifying the list of search terms in `Search.txt`, run:
+`python crawler.py`.
 
 [Pre-Usage Tasks]
 
