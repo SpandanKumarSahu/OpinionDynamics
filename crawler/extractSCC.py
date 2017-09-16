@@ -56,6 +56,11 @@ for relation in relations:
     r = relation.split()
     edges[r[0]].append(r[1])
 
+count = 0
 for scc in  strongly_connected_components_path(users, edges):
-    print(scc)
+    s = str("SCC-") + str(count) + str(".txt")
+    with open(s, 'w') as file:
+        for u in list(scc):
+            file.write(str(u)+"\n")
 
+    count += 1
