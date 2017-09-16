@@ -11,7 +11,7 @@ for line in fs:
 
 def collectTweet(api, search):
     searchQuery = search  # this is what we're searching for
-    maxTweets = 20000 # Some arbitrary large number
+    maxTweets = 50000 # Some arbitrary large number
     tweetsPerQry = 100  # this is the max the API permits
     fName = 'data.txt' # We'll store the tweets in a text file.
 
@@ -46,7 +46,7 @@ def collectTweet(api, search):
                 break
             messages = []
             for tweet in new_tweets:
-                message = Message(tweet.text, tweet.user.screen_name, tweet.created_at)
+                message = Message(tweet.text, tweet.user.screen_name, tweet.created_at, search)
                 messages.append(message)
             with open('data.txt', 'a') as file:
                 for m in messages:
