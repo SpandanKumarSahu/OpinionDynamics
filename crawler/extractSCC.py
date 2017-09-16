@@ -60,7 +60,7 @@ count = 0
 for scc in  strongly_connected_components_path(users, edges):
     s = str("SCC-") + str(count) + str(".txt")
     with open(s, 'w') as file:
-        for u in list(scc):
-            file.write(str(u)+"\n")
-
-    count += 1
+	if(len(list(scc))> 1):
+            for u in list(scc):
+                file.write(str(u)+"\n")
+	    count += 1
