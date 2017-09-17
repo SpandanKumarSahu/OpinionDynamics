@@ -45,7 +45,7 @@ edges = {}
 for user in users:
     edges[user] = []
 
-with open('userRelation.txt', 'r') as file:
+with open('relationList.txt', 'r') as file:
     relations = file.readlines()
     relations = [x.strip() for x in relations]
 
