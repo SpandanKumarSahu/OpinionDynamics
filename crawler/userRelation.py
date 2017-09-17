@@ -23,19 +23,23 @@ if (not api):
 relations = []
 
 t = datetime.now()
-
-for user in users:
-    for friend in users:
-        print "Checking relations for ", user, friend
+i = 0
+j = 0
+while i < len(users):
+    j = 0
+    while j < len(users):
+        print "Checking relations for ", users[i], users[j]
         try:
-            status = api.show_friendship(source_screen_name=user, target_screen_name=friend)
+            status = api.show_friendship(source_screen_name=users[i], target_screen_name=users[j])
             if status[1].following:
-                relations.append((user, friend))
-                print user, friend
+                relations.append((users[i], users[j]))
+                print "Relation exists between: ", users[i], users[j]
+            j += 1
         except:
             delta = datetime.now() - t
             time.sleep(900 - delta.seconds)
             t = datetime.now()
+    i += 1
 
 with open('relationList.txt', 'w') as file:
     for relation in relations:
