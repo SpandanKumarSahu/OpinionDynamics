@@ -1,4 +1,5 @@
 import Message
+from datetime import datetime
 import time
 import tweepy
 
@@ -21,13 +22,20 @@ if (not api):
 
 relations = []
 
+t = datetime.now()
+
 for user in users:
     for friend in users:
         print "Checking relations for ", user, friend
-        status = api.show_friendship(source_screen_name=user, target_screen_name=friend)
-        if status[1].following:
-            relations.append((user, friend))
-            print user, friend
+        try:
+            status = api.show_friendship(source_screen_name=user, target_screen_name=friend)
+            if status[1].following:
+                relations.append((user, friend))
+                print user, friend
+        except:
+            delta = datetime.now() - t
+            time.sleep(900 - delta.seconds)
+            t = datetime.now()
 
 with open('relationList.txt', 'w') as file:
     for relation in relations:
